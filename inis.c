@@ -3,19 +3,7 @@
 #include <time.h>
 #include <math.h>
 
-double sig(double b){
-  double k;
-  int i = 0;
-  double ave = 0;
-  int sum = 0;
-  srand(time(NULL));
-  while (ave == b){
-  k = rand() / (double) RAND_MAX;
-  i ++;
-  sum += k;
-  ave = sum / i;
-  }
-}
+
 
 int sim(){
 
