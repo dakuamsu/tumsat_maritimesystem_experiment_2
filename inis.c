@@ -28,7 +28,7 @@ int main(void){
   double x, y, s, t;
   double a = 54;
   double b = 60 / 4 + 48;
-  double sig = 0.01;
+  double sig = 0.01; /* 標準偏差わからんから適当に入れる */
   double pi = 3.14159265358979323846;
   double time = 0;
   int yard = 0;
