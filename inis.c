@@ -5,6 +5,7 @@
 #include <math.h>
 #include "SFMT.h"
 
+/* 入ってくるコンテナの関数 */
 double in(double a){
   double x, y;
   srand(time(NULL));
@@ -13,6 +14,7 @@ double in(double a){
   return y;
 }
 
+/* 裁くコンテナの関数 */
 double out(double pi, double sig, double b){
   double s, t, o;
   s = sfmt_genrand_real2(&sfmt) ;
@@ -26,13 +28,13 @@ int main(void){
   int seed = time(NULL);
   sfmt_init_gen_rand(&sfmt, seed);
   double x, y, s, t;
-  double a = 54;
-  double b = 60 / 4 + 48;
+  double a = 54;  /* 18 * 3 */
+  double b = 60 / 4 + 48;  /* 学籍番号下二桁のやつ */
   double sig = 0.01; /* 標準偏差わからんから適当に入れる */
-  double pi = 3.14159265358979323846;
-  double time = 0;
-  int yard = 0;
-  int done = 0;
+  double pi = 3.14159265358979323846;  /* 円周率の定義 */
+  double time = 0;  /* 時間の初期化 */
+  int yard = 0;  /* ヤードにあるコンテナの数の初期化 */
+  int done = 0;  /* 捌いた数の初期化 */
   s = t = 0;
   x = in(a);
   yard += 1;
