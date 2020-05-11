@@ -3,26 +3,28 @@
 #include <time.h>
 #define _USER_MATH_DEFINES
 #include <math.h>
+#include "SFMT.h"
 
 double in(double a){
   double x, y;
   srand(time(NULL));
-  x = rand() / (double) RAND_MAX;
+  x = sfmt_genrand_real2(&sfmt) ;
   y = -1 / a * log(x);
   return y;
 }
 
 double out(double pi, double sig, double b){
   double s, t, o;
-  srand(time(NULL));
-  s = rand() / (double) RAND_MAX;
-  t = rand() / (double) RAND_MAX;
+  s = sfmt_genrand_real2(&sfmt) ;
+  t = sfmt_genrand_real2(&sfmt) ;
   o = sqrt(-2 * log(s)) * cos(2 * pi * t)* sig;
   return o;
 }
 
 int main(void){
-  srand(time(NULL));
+  sfmt_t sfmt;
+  int seed = time(NULL);
+  sfmt_init_gen_rand(&sfmt, seed);
   double x, y, s, t;
   double a = 54;
   double b = 60 / 4 + 48;
