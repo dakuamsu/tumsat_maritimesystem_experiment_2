@@ -7,6 +7,7 @@
 
 /* 入ってくるコンテナの関数 */
 double in(double a){
+  sfmt_t sfmt
   double x, y;
   srand(time(NULL));
   x = sfmt_genrand_real2(&sfmt) ;
@@ -16,6 +17,7 @@ double in(double a){
 
 /* 裁くコンテナの関数 */
 double out(double pi, double sig, double b){
+  sfmt_t sfmt
   double s, t, o;
   s = sfmt_genrand_real2(&sfmt) ;
   t = sfmt_genrand_real2(&sfmt) ;
@@ -42,11 +44,11 @@ int main(void){
   t += s;
   y = out(pi,sig,b);
   t += y;
-  int i = 0;
+  int i = 1;
   while(i != 100){
-      i += 1;
       printf("%d個目入場 ヤードには%d個 %f時間経過\n", i, yard, s);
       x = in(a);
+      i += 1;
       s += x;
       if(s > t){
           yard -= 1;
